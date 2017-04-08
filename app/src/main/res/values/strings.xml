@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KitchenTimer</string>
+    <string name="text0">0</string>
 </resources>
