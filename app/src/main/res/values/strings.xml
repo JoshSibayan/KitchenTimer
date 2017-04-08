@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">KitchenTimer</string>
-    <string name="text0">0</string>
+    <string name="text_zero">Reset</string>
+    <string name="text_plus">+</string>
+    <string name="text_minus">-</string>
+    <string name="text_start">Start</string>
+    <string name="text_stop">Stop</string>
 </resources>

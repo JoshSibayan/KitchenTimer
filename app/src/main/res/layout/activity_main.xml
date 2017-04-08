@@ -24,12 +24,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
         android:onClick="onReset"
-        android:text="@string/text0"
+        android:text="@string/text_zero"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/display"
@@ -43,9 +43,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
         android:onClick="onClickPlus"
-        android:text="+"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button"
-        app:layout_constraintLeft_toRightOf="@+id/button"
+        android:text="@string/text_plus"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_reset"
+        app:layout_constraintLeft_toRightOf="@+id/button_reset"
         tools:layout_constraintBaseline_creator="1"
         tools:layout_constraintLeft_creator="1" />
 
@@ -56,9 +56,9 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:onClick="onClickMinus"
-        android:text="-"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button"
-        app:layout_constraintRight_toLeftOf="@+id/button"
+        android:text="@string/text_minus"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_reset"
+        app:layout_constraintRight_toLeftOf="@+id/button_reset"
         tools:layout_constraintBaseline_creator="1" />
 
     <Button
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClickStart"
-        android:text="Start"
+        android:text="@string/text_start"
         app:layout_constraintBaseline_toBaselineOf="@+id/button_stop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/button_stop"
@@ -76,9 +76,9 @@
         android:id="@+id/button_stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="75dp"
         android:onClick="onClickStop"
-        android:text="Stop"
+        android:text="@string/text_stop"
         app:layout_constraintLeft_toRightOf="@+id/button_start"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_plus"
@@ -86,5 +86,42 @@
 
     <!-- New Buttons -->
 
+    <Button
+        android:id="@+id/preset1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:onClick=""
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/display"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <Button
+        android:id="@+id/preset2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:onClick=""
+        android:text=""
+        app:layout_constraintBaseline_toBaselineOf="@+id/preset1"
+        app:layout_constraintLeft_toRightOf="@+id/preset1"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1" />
+
+    <Button
+        android:id="@+id/preset3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:onClick=""
+        android:text=""
+        app:layout_constraintBaseline_toBaselineOf="@+id/preset1"
+        app:layout_constraintRight_toLeftOf="@+id/preset1"
+        tools:layout_constraintBaseline_creator="1" />
 
 </android.support.constraint.ConstraintLayout>
