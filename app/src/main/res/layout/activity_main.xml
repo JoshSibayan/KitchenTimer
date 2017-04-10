@@ -90,6 +90,18 @@
         android:id="@+id/preset1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:onClick="onClickPreset1"
+        android:text=""
+        app:layout_constraintBaseline_toBaselineOf="@+id/preset2"
+        app:layout_constraintRight_toLeftOf="@+id/preset2"
+        tools:layout_constraintBaseline_creator="1" />
+
+    <Button
+        android:id="@+id/preset2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="95dp"
         android:onClick=""
         android:text=""
@@ -100,28 +112,18 @@
         tools:layout_constraintRight_creator="1" />
 
     <Button
-        android:id="@+id/preset2"
+        android:id="@+id/preset3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
         android:onClick=""
         android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/preset1"
-        app:layout_constraintLeft_toRightOf="@+id/preset1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/preset2"
+        app:layout_constraintLeft_toRightOf="@+id/preset2"
         tools:layout_constraintBaseline_creator="1"
         tools:layout_constraintLeft_creator="1" />
 
-    <Button
-        android:id="@+id/preset3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:onClick=""
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/preset1"
-        app:layout_constraintRight_toLeftOf="@+id/preset1"
-        tools:layout_constraintBaseline_creator="1" />
+
 
 </android.support.constraint.ConstraintLayout>

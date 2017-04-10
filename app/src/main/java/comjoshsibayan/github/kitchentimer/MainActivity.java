@@ -10,11 +10,13 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final private String LOG_TAG = "test_timer";
+    private static final String LOG_TAG = "test_timer";
 
     private int seconds = 0;
     private CountDownTimer timer = null;
     private static final int ONE_SECOND_IN_MILLIS = 100;
+    private int clickCount = 0;
+    private boolean clicked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,63 @@ public class MainActivity extends AppCompatActivity {
     public void onClickPlus(View v) {
         seconds += 60;
         displayTime();
+
+        /*// Update preset buttons when plus is pressed
+        final int m = seconds / 60;
+        final int s = seconds % 60;
+
+        TextView v1 = (TextView) findViewById(R.id.display);
+        Button presetTime1 = (Button) findViewById(R.id.preset1);
+        presetTime1.setText(String.format("%d:%02d", m, s));
+        v1.setText(String.format("%d:%02d", m, s));*/
+    }
+
+    // If start button pressed then display time on button
+    // This
+    public void onClickPreset1(View v) {
+        /*String preset1;
+        final int m = seconds / 60;
+        final int s = seconds % 60;
+
+        TextView v1 = (TextView) findViewById(R.id.display);
+        Button presetTime1 = (Button) findViewById(R.id.preset1);
+        Button startButton = (Button) findViewById(R.id.button_start);
+
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clicked = true;
+            }
+        });
+
+        if(clickCount == 1) {
+            Log.d(LOG_TAG, "Start clicked once");
+            Button stopButton = (Button) findViewById(R.id.button_stop);
+            Button startButton2 = (Button) findViewById(R.id.button_start);
+
+            startButton2.setEnabled(timer == null && seconds > 0);
+            stopButton.setEnabled(timer != null && seconds > 0);
+            preset1 = presetTime1.getText().toString();
+            v1.setText(preset1);
+            Log.d(LOG_TAG, "Displaying time1 " + preset1);
+            //previous(m, s);
+        } else {
+            Log.d(LOG_TAG, "Start clicked " + clickCount + " times");
+            TextView v2 = (TextView) findViewById(R.id.preset1);
+            preset1 = v2.getText().toString();
+            v1.setText(preset1);
+            Log.d(LOG_TAG, "Preset1 time is " + preset1);
+
+        }*/
+
+        // onClickStart(v1);
+
+        TextView v1 = (TextView) findViewById(R.id.display);
+        Button presetTime1 = (Button) findViewById(R.id.preset1);
+
+        v1.setText(presetTime1.getText());
+
+
     }
 
     public void onClickMinus(View v) {
@@ -66,12 +125,42 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
             timer.start();
+            // clickCount++;
+
+            Button presetTime1 = (Button) findViewById(R.id.preset1);
+            Button presetTime2 = (Button) findViewById(R.id.preset2);
+            Button presetTime3 = (Button) findViewById(R.id.preset3);
+
+            int[] array = new int[2];
+            array = displayTime();
+            String FirstTime = String.format(String.format("%d:%02d", array[0], array[1]));
+
+            // If times in display and any button are the same then keep same button
+            // If times are different then shift times
+            if(!presetTime1.getText().equals(FirstTime)) {
+                presetTime3.setText(presetTime2.getText());
+                presetTime2.setText(presetTime1.getText());
+                presetTime1.setText(FirstTime);
+            }
         }
     }
 
     public void onClickStop(View v) {
         cancelTimer();
         displayTime();
+
+        Button presetTime1 = (Button) findViewById(R.id.preset1);
+        Button presetTime2 = (Button) findViewById(R.id.preset2);
+        Button presetTime3 = (Button) findViewById(R.id.preset3);
+
+        int[] array = new int[2];
+        array = displayTime();
+        String FirstTime = String.format(String.format("%d:%02d", array[0], array[1]));
+
+        // Shift time between buttons
+        presetTime3.setText(presetTime2.getText());
+        presetTime2.setText(presetTime1.getText());
+        presetTime1.setText(FirstTime);
     }
 
     private void cancelTimer() {
@@ -82,11 +171,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Update time display
-    private void displayTime() {
+    private int[] displayTime() {
         Log.d(LOG_TAG, "Displaying time " + seconds);
-        TextView v = (TextView) findViewById(R.id.display);
         int m = seconds / 60;
         int s = seconds % 60;
+
+        TextView v = (TextView) findViewById(R.id.display);
         v.setText(String.format("%d:%02d", m, s));
 
         // Button management
@@ -94,5 +184,9 @@ public class MainActivity extends AppCompatActivity {
         Button startButton = (Button) findViewById(R.id.button_start);
         startButton.setEnabled(timer == null && seconds > 0);
         stopButton.setEnabled(timer != null && seconds > 0);
+
+        int array[] = {m, s};
+        return array;
     }
+
 }
